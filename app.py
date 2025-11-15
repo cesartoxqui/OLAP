@@ -29,7 +29,7 @@ def index():
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Proyecto OLAP – Estructura y Funcionamiento</title>
+<title>Estructura y Funcionamiento</title>
 
 <style>
 body {{
@@ -102,7 +102,7 @@ function openTab(tabName, btn) {{
 
 <body>
 
-<h1>Proyecto OLAP – Estructura y Funcionamiento</h1>
+<h1>Estructura y Funcionamiento</h1>
 
 <div class="tabs">
     <button class="tab-btn active" onclick="openTab('generar', this)">generarDatos.py</button>
@@ -127,7 +127,7 @@ function openTab(tabName, btn) {{
 </div>
 
 <div id="funcionamiento" class="tab-content">
-    <h2>Funcionamiento real del sistema</h2>
+    <h2>Funcionamiento/h2>
 
     <h3>Dataset generado (5 filas)</h3>
     {df.head().to_html()}
