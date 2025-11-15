@@ -1,43 +1,82 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
 
-{% block content %}
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estructura de Funciones OLAP</title>
+<!-- Incluye Tailwind CSS para un diseño limpio y responsivo -->
+<script src="https://www.google.com/search?q=https://cdn.tailwindcss.com"></script>
+<style>
+/* Fuente Inter de Google */
+body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-gray-50 p-4 sm:p-8">
 
-    <h2 class="mt-4 mb-4 text-secondary">Visualizaciones del Cubo OLAP</h2>
+<div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+    
+    <!-- Encabezado -->
+    <header class="bg-blue-600 p-6 text-white">
+        <h1 class="text-3xl font-bold">Análisis OLAP con Pandas</h1>
+        <p class="text-blue-200 mt-1">Estructura de Funciones y Operaciones del Cubo</p>
+    </header>
 
-    <div class="card mb-4">
-        <div class="card-header bg-info text-white">
-            <h3 class="h6 mb-0">1. El Cubo Completo</h3>
-        </div>
-        <div class="card-body p-0">
-            {{ cubo_completo }}
-        </div>
-    </div>
+    <main class="p-6">
+        <p class="mb-6 text-gray-700">
+            Esta tabla detalla las funciones de Data Warehousing (OLAP) implementadas en los archivos Python del proyecto, 
+            clasificadas por el tipo de operación que realizan sobre el conjunto de datos base.
+        </p>
 
-    <div class="card mb-4">
-        <div class="card-header bg-success text-white">
-            <h3 class="h6 mb-0">2. Una Cara del Cubo (Roll-up)</h3>
+        <!-- Tabla de Estructura de Funciones -->
+        <div class="overflow-x-auto border border-gray-200 rounded-xl">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Función
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Operación OLAP
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden sm:table-cell">
+                            Archivo
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Descripción
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for func in estructura %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <code class="text-sm font-semibold text-blue-800 bg-blue-50 p-1 rounded-md">{{ func.nombre }}</code>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
+                                {{ func.tipo }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden sm:table-cell">
+                            <span class="bg-gray-100 text-gray-600 p-1 rounded text-xs">{{ func.archivo }}</span>
+                        </td>
+                        <td class="px-6 py-4 text-sm text-gray-600 max-w-sm">
+                            {{ func.descripcion }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-        <div class="card-body">
-            {{ cara_cubo }}
-        </div>
-    </div>
 
-    <div class="card mb-4">
-        <div class="card-header bg-warning text-dark">
-            <h3 class="h6 mb-0">3. Una Sección del Cubo (Dice)</h3>
-        </div>
-        <div class="card-body">
-            {{ seccion_cubo }}
-        </div>
-    </div>
+        <p class="mt-6 text-sm text-gray-500">
+            Para ejecutar estas funciones y visualizar las operaciones con datos reales, ejecuta `python usocubos.py` en la terminal o navega a la URL donde se despliegue esta aplicación (si se implementan las visualizaciones del cubo).
+        </p>
+    </main>
+    
+</div>
 
-    <div class="card mb-5">
-        <div class="card-header bg-danger text-white">
-            <h3 class="h6 mb-0">4. Datos que Soportan a una Celda del Cubo (Drill-down)</h3>
-        </div>
-        <div class="card-body">
-            {{ celda_cubo }}
-        </div>
-    </div>
 
-{% endblock %}
+</body>
+</html>
