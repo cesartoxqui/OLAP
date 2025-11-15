@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2 class="mt-4 mb-4 text-secondary">Visualizaciones del Cubo OLAP</h2>
+
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <h3 class="h6 mb-0">1. El Cubo Completo</h3>
+        </div>
+        <div class="card-body p-0">
+            {{ cubo_completo }}
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h3 class="h6 mb-0">2. Una Cara del Cubo (Roll-up)</h3>
+        </div>
+        <div class="card-body">
+            {{ cara_cubo }}
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header bg-warning text-dark">
+            <h3 class="h6 mb-0">3. Una Sección del Cubo (Dice)</h3>
+        </div>
+        <div class="card-body">
+            {{ seccion_cubo }}
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-header bg-danger text-white">
+            <h3 class="h6 mb-0">4. Datos que Soportan a una Celda del Cubo (Drill-down)</h3>
+        </div>
+        <div class="card-body">
+            {{ celda_cubo }}
+        </div>
+    </div>
+
+{% endblock %}
