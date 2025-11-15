@@ -15,12 +15,10 @@ def leer_archivo(ruta):
 @app.route("/")
 def index():
 
-    # Código real de tus archivos
     code_generar = leer_archivo("funciones/generarDatos.py")
     code_cubo = leer_archivo("funciones/crearCubo.py")
     code_ops = leer_archivo("funciones/operacionesCubo.py")
 
-    # Funcionamiento real
     df = generar_dataset()
     cubo = cubo_base(df)
     slice2024 = slice_por_anio(df, 2024)
